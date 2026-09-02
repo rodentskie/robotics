@@ -19,7 +19,6 @@ Developed with ROB-9457
 
 Motor Driver -> Arduino Pin Number
 
-UNO
 1) PWMA -> 5 pmw
 2) INA1 -> 2
 3) INA2 -> 4
@@ -27,13 +26,6 @@ UNO
 5) INB1 -> 7
 6) INB2 -> 8
 
-NANO
-1) PWMA -> 5 pmw
-2) INA1 -> 2
-3) INA2 -> 4
-4) PWMB -> 6 pmw
-5) INB1 -> 7
-6) INB2 -> 8
 ******************************************************************************/
 
 // This is the library for the TB6612 that contains the class Motor and all the
