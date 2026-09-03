@@ -57,10 +57,11 @@ Motor motor2 = Motor(BIN1, BIN2, PWMB, offsetB, STBY);
 
 
 const int forwardSpeed = 255;
-const int turnLeftSpeed = 255;
+const int turnSpeed = 255;
+const int defaultTurnSpeed = 100;
 const int reverseSpeed = -255;
 
-const int defaultDelay = 5000;
+const int defaultDelay = 1000;
 
 void setup() {
   //Nothing here
@@ -72,7 +73,7 @@ void loop() {
 
   delay(defaultDelay);
 
-  left(motor1, motor2, turnLeftSpeed);
+  turnLeft(motor1, motor2, turnSpeed, defaultTurnSpeed);
   delay(defaultDelay);
 
 
@@ -80,10 +81,21 @@ void loop() {
   delay(defaultDelay);
 
 
-  right(motor1, motor2, turnLeftSpeed);
+  turnRight(motor1, motor2, turnSpeed, defaultTurnSpeed);
   delay(defaultDelay);
 
 
   // brake(motor1, motor2);
   // delay(defaultDelay);
+}
+
+
+void turnLeft(Motor motor1, Motor motor2, int turnSpeed, int defaultTurnSpeed) {
+  motor1.drive(turnSpeed);
+  motor2.drive(defaultTurnSpeed);
+}
+
+void turnRight(Motor motor1, Motor motor2, int turnSpeed, int defaultTurnSpeed) {
+  motor1.drive(defaultTurnSpeed);
+  motor2.drive(turnSpeed);
 }
