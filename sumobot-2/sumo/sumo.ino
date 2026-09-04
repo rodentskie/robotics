@@ -43,11 +43,11 @@ Motor motor1 = Motor(AIN1, AIN2, PWMA, offsetA, STBY);
 Motor motor2 = Motor(BIN1, BIN2, PWMB, offsetB, STBY);
 
 
-const int forwardSpeed = 255;
-const int turnSpeed = 255;
+const int forwardSpeed = 150;
+const int turnSpeed = 150;
 const int defaultTurnSpeed = 100;
-const int reverseSpeed = -255;
-const int reverseDuration = 500;
+const int reverseSpeed = -150;
+const int reverseDuration = 1000;
 const int turnDuration = 1500;  // max time allowed for the turn, in ms
 
 // ir setup
@@ -88,7 +88,7 @@ void loop() {
   // if either IR sensor detects black, border of the ring; brake!
   // reverse a little, then turn right up to turnDuration ms
   // if distance fluctuation while turning (maybe enemy robot) then go forward immediately
-  if (rightSensorValue == 0 || leftSensorValue == 0) {
+  if (rightSensorValue == 1 || leftSensorValue == 1) {
     brake(motor1, motor2);
     back(motor1, motor2, reverseSpeed);
     delay(reverseDuration);
